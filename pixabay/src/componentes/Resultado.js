@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Imagen from './Imagen';
+import Paginacion from './Paginacion';
 
 export default class Resultado extends Component {
     mostrarImagenes = () =>{
@@ -10,9 +11,13 @@ export default class Resultado extends Component {
             <React.Fragment>
                 <div className="col-12 p-5 row">
                     {imagenes.map(imagen => (
-                        <Imagen />    
+                        <Imagen key={imagen.id} imagen={imagen}/>    
                     ))}
                 </div>
+                <Paginacion 
+                    pagAnterior={this.props.pagAnterior}
+                    pagSiguiente={this.props.pagSiguiente}
+                />
             </React.Fragment>
         )
     }
